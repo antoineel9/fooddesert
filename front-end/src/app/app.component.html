@@ -1,0 +1,49 @@
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #292929;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 25px;
+    margin-left: -16px;
+  }
+
+  .content {
+    margin: 0px auto 32px;
+
+    max-width: 960px;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+
+  #logo {
+    height: 60px;
+  }
+</style>
+
+<div class="content" role="main">
+  <!-- Toolbar -->
+  <div class="toolbar" role="banner">
+    <div class="spacer"></div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

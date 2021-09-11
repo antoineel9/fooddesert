@@ -1,0 +1,48 @@
+<form [formGroup]="loginForm" (ngSubmit)="btnLoginClicked()" class="loginForm">
+  <mat-card class="mat-elevation-z8" style="margin-top: 50px">
+    <div fxFlexFill fxLayoutAlign="center">
+      <!--img
+        alt="Grind Season Logo"
+        src="assets/logo.png"
+        style="height: 100px; padding-bottom: 50px"
+      /-->
+    </div>
+    <mat-form-field fxFlexFill>
+      <input required matInput placeholder="Email" formControlName="emailCtl" />
+      <mat-error *ngIf="this.loginForm.controls.emailCtl.errors?.email">
+        Please enter a valid email
+      </mat-error>
+      <mat-error *ngIf="this.loginForm.controls.emailCtl.errors?.required">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlexFill>
+      <input
+        type="password"
+        required
+        matInput
+        placeholder="Password"
+        formControlName="passwordCtl"
+      />
+      <mat-error *ngIf="this.loginForm.controls.passwordCtl.errors?.required">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <div fxFlexFill style="padding-top: 20px">
+      <div fxFlex="50" fxLayoutAlign=" center">
+        <label class="error">{{ error }}</label>
+      </div>
+      <div fxFlex fxLayoutAlign="end">
+        <button
+          type="submit"
+          color="primary"
+          mat-raised-button
+          (click)="btnLoginClicked()"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</form>
