@@ -68,6 +68,6 @@ export class ResourceComponent implements OnInit {
         this.resourceForm.controls.veggiesCtl.setValue(res.freshVeggies);
         this.resourceForm.controls.bakeryCtl.setValue(res.bakery);
       }
-    })
+    });
   }
 }
