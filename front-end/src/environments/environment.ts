@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   strapiBaseUrl: 'http://localhost:1337/',
-  apiBaseURL: 'http://fooddesert.vedaks.com/tpapi'
+  apiBaseURL: 'http://fooddesert.vedaks.com/tpapi',
+  positionStackURL: 'http://api.positionstack.com/v1/',
+  POSITION_KEY: '94c5f2321ea3c04e69fae02b1fe6ddcc',
+  GOOGLE_KEY: 'AIzaSyDyK-rTDT44Y4RUCUiUzxYyEnjRZiZe-Lk'
 };
 
 /*
