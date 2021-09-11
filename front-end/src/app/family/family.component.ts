@@ -8,7 +8,7 @@ import { DropdownService } from '../shared/services/dropdown.service';
   templateUrl: './family.component.html',
   styleUrls: ['./family.component.scss']
 })
-export class ResourceComponent implements OnInit {
+export class FamilyComponent implements OnInit {
 
   constructor(private dropDownService: DropdownService) { }
 

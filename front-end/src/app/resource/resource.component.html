@@ -1,5 +1,6 @@
+<app-resource-nav></app-resource-nav>
 <h1 style="color: white">Food Resource Entry Portal</h1>
-<form [formGroup]="resourceForm" (ngSubmit)="btnSubmitClicked()">
+<form [formGroup]="resourceForm" (ngSubmit)="btnUpdateClicked()">
   <mat-card fxLayout="row wrap" class="mat-elevation-z8">
     <h2>Store Selector</h2>
     <mat-select
@@ -7,6 +8,7 @@
       formControlName="storesCtl"
       [(value)]="selectedStore"
       (selectionChange)="storeChanged()"
+      required
     >
       <mat-option *ngFor="let store of stores" [value]="store._id">{{
         store.name
@@ -17,7 +19,7 @@
   <mat-card fxLayout="row wrap" class="mat-elevation-z8">
     <h2>Available Food Items</h2>
     <div fxFlexFill>
-      <mat-checkbox formControlName="meatCtl">Meats</mat-checkbox>
+      <mat-checkbox formControlName="meatCtl">Fresh Meats</mat-checkbox>
     </div>
     <div fxFlexFill>
       <mat-checkbox formControlName="dairyCtl">Dairy</mat-checkbox>
@@ -26,13 +28,21 @@
       <mat-checkbox formControlName="poultryCtl">Poultry</mat-checkbox>
     </div>
     <div fxFlexFill>
-      <mat-checkbox formControlName="veggiesCtl">Veggies</mat-checkbox>
+      <mat-checkbox formControlName="veggiesCtl">Fresh Veggies</mat-checkbox>
     </div>
     <div fxFlexFill>
-      <mat-checkbox formControlName="fruitsCtl">Fruits</mat-checkbox>
+      <mat-checkbox formControlName="bakeryCtl">Bakery Goods</mat-checkbox>
     </div>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="pastriesCtl">Pastries</mat-checkbox>
+    <div fxFlex fxLayoutAlign="end">
+      <button
+        type="submit"
+        color="primary"
+        mat-raised-button
+        (click)="btnUpdateClicked()"
+        [disabled]="!resourceForm.valid"
+      >
+        Update
+      </button>
     </div>
   </mat-card>
 </form>

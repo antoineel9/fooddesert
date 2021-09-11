@@ -1,21 +1,10 @@
-<h1 style="color: white">Food Resource Entry Portal</h1>
+<h1 style="color: white">Family Food Portal</h1>
 <form [formGroup]="resourceForm" (ngSubmit)="btnSubmitClicked()">
   <mat-card fxLayout="row wrap" class="mat-elevation-z8">
-    <h2>Store Selector</h2>
-    <mat-select
-      placeholder="Store Selector"
-      formControlName="storesCtl"
-      [(value)]="selectedStore"
-      (selectionChange)="storeChanged()"
-    >
-      <mat-option *ngFor="let store of stores" [value]="store._id">{{
-        store.name
-      }}</mat-option>
-    </mat-select>
-  </mat-card>
-
-  <mat-card fxLayout="row wrap" class="mat-elevation-z8">
-    <h2>Available Food Items</h2>
+    <h2>
+      We have the following available food items, please select your desired
+      option(s).
+    </h2>
     <div fxFlexFill>
       <mat-checkbox formControlName="meatCtl">Meats</mat-checkbox>
     </div>

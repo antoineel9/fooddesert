@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ResourceComponent } from './resource/resource.component';
 import { FamilyComponent } from './family/family.component';
+import { ResourceNavComponent } from './resource-nav/resource-nav.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FamilyComponent } from './family/family.component';
     LoginComponent,
     AdminComponent,
     ResourceComponent,
-    FamilyComponent
+    FamilyComponent,
+    ResourceNavComponent
   ],
   imports: [
     BrowserModule,
