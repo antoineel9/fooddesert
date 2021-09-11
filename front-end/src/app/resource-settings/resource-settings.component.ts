@@ -53,6 +53,7 @@ export class ResourceSettingsComponent implements OnInit {
         // Load the store
         this.loadedStore = res;
         
+        // Parse address string
         const addressObject: Address = this.convertStringAddressToObject(res.address);
 
         //Load screen fields

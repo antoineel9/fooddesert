@@ -1,12 +1,30 @@
 <h1 style="color: white">Family Food Portal</h1>
 <form [formGroup]="familyForm" (ngSubmit)="btnSubmitClicked()">
   <mat-card fxLayout="row wrap" class="mat-elevation-z8">
-    <h2>
+    <h2>User Selector</h2>
+    <mat-form-field fxFlexFill>
+      <mat-label>User</mat-label>
+      <mat-select
+        fxFlexFill
+        placeholder="User"
+        formControlName="usersCtl"
+        [(value)]="selectedUser"
+        (selectionChange)="userChanged()"
+        required
+      >
+        <mat-option *ngFor="let user of users" [value]="user._id">{{
+          user.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+  <mat-card fxLayout="row wrap" class="mat-elevation-z8">
+    <h3>
       We have the following available food items, please select your desired
       option(s).
-    </h2>
+    </h3>
     <div fxFlexFill>
-      <mat-checkbox formControlName="meatCtl">Meats</mat-checkbox>
+      <mat-checkbox formControlName="meatCtl">Fresh Meats</mat-checkbox>
     </div>
     <div fxFlexFill>
       <mat-checkbox formControlName="dairyCtl">Dairy</mat-checkbox>
@@ -15,13 +33,89 @@
       <mat-checkbox formControlName="poultryCtl">Poultry</mat-checkbox>
     </div>
     <div fxFlexFill>
-      <mat-checkbox formControlName="veggiesCtl">Veggies</mat-checkbox>
+      <mat-checkbox formControlName="veggiesCtl">Fresh Veggies</mat-checkbox>
     </div>
     <div fxFlexFill>
-      <mat-checkbox formControlName="fruitsCtl">Fruits</mat-checkbox>
+      <mat-checkbox formControlName="bakeryCtl">Bakery Goods</mat-checkbox>
     </div>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="pastriesCtl">Pastries</mat-checkbox>
-    </div>
+    <h3>Are you currently located at home?</h3>
+    <mat-form-field fxFlexFill>
+      <mat-label>Current Location</mat-label>
+      <mat-select
+        placeholder="Current Location"
+        formControlName="atHomeCtl"
+        [(value)]="atHomeFlag"
+      >
+        <mat-option selected="selected" value="1">Yes</mat-option>
+        <mat-option value="0">No</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ng-template [ngIf]="this.familyForm.value.atHomeCtl === '0'">
+      <h3>Please provide your current location</h3>
+      <mat-form-field fxFlexFill>
+        <input
+          required
+          matInput
+          placeholder="Street"
+          formControlName="streetCtl"
+        />
+        <mat-error *ngIf="this.familyForm.controls.streetCtl.errors?.required">
+          Street is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlexFill>
+        <input
+          required
+          matInput
+          placeholder="Zip"
+          formControlName="zipCtl"
+          type="number"
+        />
+        <mat-error *ngIf="this.familyForm.controls.zipCtl.errors?.required">
+          Zip is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlexFill>
+        <input
+          required
+          matInput
+          placeholder="City"
+          formControlName="cityCtl"
+          readonly
+        />
+        <mat-error *ngIf="this.familyForm.controls.cityCtl.errors?.required">
+          City is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlexFill>
+        <input
+          required
+          matInput
+          placeholder="State"
+          formControlName="stateCtl"
+          readonly
+        />
+        <mat-error *ngIf="this.familyForm.controls.stateCtl.errors?.required">
+          State is required
+        </mat-error>
+      </mat-form-field>
+      <div fxFlex fxLayoutAlign="end">
+        <button
+          color="primary"
+          mat-raised-button
+          (click)="btnValidateAddressClicked()"
+          [disabled]="!locationValid()"
+        >
+          Validate
+        </button>
+      </div>
+
+      <div id="map"></div>
+    </ng-template>
   </mat-card>
 </form>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyK-rTDT44Y4RUCUiUzxYyEnjRZiZe-Lk&callback=initMap&libraries=places,geometry&channel=GMPSB_locatorplus_v4_cA"
+  async
+  defer
+></script>
