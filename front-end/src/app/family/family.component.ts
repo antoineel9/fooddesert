@@ -1,15 +1,16 @@
-import { google } from @typ
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppUser } from '../shared/interfaces/appuser.interface';
 import { ApiService } from '../shared/services/api.service';
 import { DropdownService } from '../shared/services/dropdown.service';
 
+
 @Component({
   selector: 'app-resource',
   templateUrl: './family.component.html',
   styleUrls: ['./family.component.scss']
 })
+
 export class FamilyComponent implements OnInit {
 
   constructor(private dropDownService: DropdownService, private apiService: ApiService) { }
