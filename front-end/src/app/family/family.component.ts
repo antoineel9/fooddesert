@@ -20,7 +20,7 @@ export class FamilyComponent implements OnInit {
     });
 
     // Setup form control vars
-    this.resourceForm = new FormGroup({
+    this.familyForm = new FormGroup({
       meatCtl: new FormControl(''),
       dairyCtl: new FormControl(''),
       poultryCtl: new FormControl(''),
@@ -36,7 +36,7 @@ export class FamilyComponent implements OnInit {
   error: string = '';
   stores!: Store[];
   selectedStore!: string;
-  resourceForm!: FormGroup;
+  familyForm!: FormGroup;
 
   
   btnSubmitClicked() {

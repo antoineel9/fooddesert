@@ -17,22 +17,88 @@
   </mat-card>
 
   <mat-card fxLayout="row wrap" class="mat-elevation-z8">
-    <h2>Available Food Items</h2>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="meatCtl">Fresh Meats</mat-checkbox>
-    </div>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="dairyCtl">Dairy</mat-checkbox>
-    </div>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="poultryCtl">Poultry</mat-checkbox>
-    </div>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="veggiesCtl">Fresh Veggies</mat-checkbox>
-    </div>
-    <div fxFlexFill>
-      <mat-checkbox formControlName="bakeryCtl">Bakery Goods</mat-checkbox>
-    </div>
+    <h2>Account Information</h2>
+    <mat-form-field fxFlexFill>
+      <input required matInput placeholder="Name" formControlName="nameCtl" />
+      <mat-error
+        *ngIf="this.resourceSettingsForm.controls.nameCtl.errors?.required"
+      >
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-select
+      placeholder="Type"
+      formControlName="typeCtl"
+      [(value)]="selectedType"
+      required
+    >
+      <mat-option *ngFor="let type of types" [value]="type.code">{{
+        type.description
+      }}</mat-option>
+    </mat-select>
+    <mat-form-field fxFlexFill>
+      <input
+        required
+        matInput
+        placeholder="Street"
+        formControlName="streetCtl"
+      />
+      <mat-error
+        *ngIf="this.resourceSettingsForm.controls.streetCtl.errors?.required"
+      >
+        Street is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlexFill>
+      <input
+        required
+        matInput
+        placeholder="City"
+        formControlName="cityCtl"
+        readonly
+      />
+      <mat-error
+        *ngIf="this.resourceSettingsForm.controls.cityCtl.errors?.required"
+      >
+        City is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlexFill>
+      <input
+        required
+        matInput
+        placeholder="State"
+        formControlName="stateCtl"
+        readonly
+      />
+      <mat-error
+        *ngIf="this.resourceSettingsForm.controls.stateCtl.errors?.required"
+      >
+        State is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlexFill>
+      <input
+        required
+        matInput
+        placeholder="Zip"
+        formControlName="zipCtl"
+        type="number"
+      />
+      <mat-error
+        *ngIf="this.resourceSettingsForm.controls.zipCtl.errors?.required"
+      >
+        Zip is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlexFill>
+      <input required matInput placeholder="Phone" formControlName="phoneCtl" />
+      <mat-error
+        *ngIf="this.resourceSettingsForm.controls.phoneCtl.errors?.pattern"
+      >
+        Please enter valid format (XXX)XXX-XXXX
+      </mat-error>
+    </mat-form-field>
     <div fxFlex fxLayoutAlign="end">
       <button
         type="submit"

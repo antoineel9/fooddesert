@@ -16,3 +16,10 @@ export interface Location {
     latitude: number;
     longitude: number;
 }
+
+export interface Address {
+    street: string;
+    city: string;
+    state: string;
+    zip: number;
+}
