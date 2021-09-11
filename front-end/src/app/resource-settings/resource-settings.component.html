@@ -1,2 +1,48 @@
 <app-resource-nav></app-resource-nav>
-<p>resource-settings works!</p>
+<h1 style="color: white">Food Resource Account Settings</h1>
+<form [formGroup]="resourceSettingsForm" (ngSubmit)="btnUpdateClicked()">
+  <mat-card fxLayout="row wrap" class="mat-elevation-z8">
+    <h2>Store Selector</h2>
+    <mat-select
+      placeholder="Store Selector"
+      formControlName="storesCtl"
+      [(value)]="selectedStore"
+      (selectionChange)="storeChanged()"
+      required
+    >
+      <mat-option *ngFor="let store of stores" [value]="store._id">{{
+        store.name
+      }}</mat-option>
+    </mat-select>
+  </mat-card>
+
+  <mat-card fxLayout="row wrap" class="mat-elevation-z8">
+    <h2>Available Food Items</h2>
+    <div fxFlexFill>
+      <mat-checkbox formControlName="meatCtl">Fresh Meats</mat-checkbox>
+    </div>
+    <div fxFlexFill>
+      <mat-checkbox formControlName="dairyCtl">Dairy</mat-checkbox>
+    </div>
+    <div fxFlexFill>
+      <mat-checkbox formControlName="poultryCtl">Poultry</mat-checkbox>
+    </div>
+    <div fxFlexFill>
+      <mat-checkbox formControlName="veggiesCtl">Fresh Veggies</mat-checkbox>
+    </div>
+    <div fxFlexFill>
+      <mat-checkbox formControlName="bakeryCtl">Bakery Goods</mat-checkbox>
+    </div>
+    <div fxFlex fxLayoutAlign="end">
+      <button
+        type="submit"
+        color="primary"
+        mat-raised-button
+        (click)="btnUpdateClicked()"
+        [disabled]="!resourceSettingsForm.valid"
+      >
+        Update
+      </button>
+    </div>
+  </mat-card>
+</form>
