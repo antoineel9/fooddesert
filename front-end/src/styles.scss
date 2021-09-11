@@ -23,14 +23,14 @@ $fontConfig: (
 
 // Primary Color
 $grindBlack: #000000;
-$grindRed: #f33636;
+$grindRed: #2d0ce6;
 
 $grindSecondaryBlack: #434343;
 $grindSecondaryWhite: #e8e8e2;
 
 $grindGray: #98988f;
 $grindPositive: #828164;
-$grindWarning: #c2712f;
+$grindWarning: #fb0000;
 
 @include mat-core($fontConfig);
 
@@ -153,9 +153,9 @@ body {
 }
 
 .mat-elevation-z8 {
-  box-shadow: 0px 5px 5px -3px rgba(233, 10, 58, 0.623),
-    0px 8px 10px 1px rgba(214, 12, 56, 0.609),
-    0px 3px 14px 2px rgba(246, 93, 93, 0.335);
+  box-shadow: 0px 5px 5px -3px rgba(17, 0, 255, 0.623),
+    0px 8px 10px 1px rgba(12, 32, 214, 0.609),
+    0px 3px 14px 2px rgba(93, 103, 246, 0.335);
 
   margin-bottom: 60px;
 }
