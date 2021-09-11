@@ -109,13 +109,11 @@
           Validate
         </button>
       </div>
-
-      <div id="map"></div>
+      <ng-template [ngIf]="this.showMap">
+        <div>
+          <img src="assets/map.png" style="height: 500px; margin-top: 50px" />
+        </div>
+      </ng-template>
     </ng-template>
   </mat-card>
 </form>
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyK-rTDT44Y4RUCUiUzxYyEnjRZiZe-Lk&callback=initMap&libraries=places,geometry&channel=GMPSB_locatorplus_v4_cA"
-  async
-  defer
-></script>

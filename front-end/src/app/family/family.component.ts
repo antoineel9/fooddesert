@@ -49,6 +49,7 @@ export class FamilyComponent implements OnInit {
   atHomeFlag: string = "1";
   map!: google.maps.Map;
   center!: google.maps.LatLngLiteral;
+  showMap: boolean = false;
   
   btnSubmitClicked() {
     
@@ -60,6 +61,7 @@ export class FamilyComponent implements OnInit {
 
     this.apiService.getLatLong(add).subscribe((res: any) => {
       console.dir(res.data[0]);
+      this.showMap = true;
     });
   }
 
