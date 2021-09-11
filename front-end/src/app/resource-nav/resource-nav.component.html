@@ -1,1 +1,21 @@
-<p>resource-nav works!</p>
+<section>
+  <button mat-raised-button color="primary" (click)="btnNavClicked('entry')">
+    Food Entry
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="btnNavClicked('settings')"
+    style="margin-left: 20px"
+  >
+    Account Settings
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="btnNavClicked('dashboard')"
+    style="margin-left: 20px"
+  >
+    My Dashboard
+  </button>
+</section>

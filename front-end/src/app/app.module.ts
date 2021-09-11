@@ -14,6 +14,8 @@ import { RouterModule } from '@angular/router';
 import { ResourceComponent } from './resource/resource.component';
 import { FamilyComponent } from './family/family.component';
 import { ResourceNavComponent } from './resource-nav/resource-nav.component';
+import { ResourceSettingsComponent } from './resource-settings/resource-settings.component';
+import { ResourceDashboardComponent } from './resource-dashboard/resource-dashboard.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ResourceNavComponent } from './resource-nav/resource-nav.component';
     AdminComponent,
     ResourceComponent,
     FamilyComponent,
-    ResourceNavComponent
+    ResourceNavComponent,
+    ResourceSettingsComponent,
+    ResourceDashboardComponent
   ],
   imports: [
     BrowserModule,
